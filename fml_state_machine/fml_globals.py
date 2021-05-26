@@ -1,0 +1,26 @@
+from fml_enums import FMLDisplayType
+from fml_misc import load_config_params, load_tank_params
+
+''' load config and tank parameters '''
+config_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/config.csv"
+config_params_dict = load_config_params(config_params_path)
+
+tank_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/tank_params.csv"
+tank_params_dict = load_tank_params(tank_params_path)
+
+''' globals '''
+debug = True
+adc_result = 0
+display_type = FMLDisplayType.TANK_LEVEL
+button_status = False
+nozzle_status = False
+leakage_stats = False
+
+# rpi gpio input pins
+button_inp_pin = 2
+nozzle_inp_pin = 4
+flow_inp_pin = 5
+leakage_inp_pin = 3
+
+# rpi gpio output pins
+pump_out_pin = 6

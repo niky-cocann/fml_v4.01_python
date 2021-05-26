@@ -1,0 +1,11 @@
+parameter,value,units
+display brightness (normal operating mode),69,%
+display brightness (active operating mode),90,%
+active display brightness duration,10,s
+fuel display duration,10,s
+refill display duration,45,s
+flow encoder ratio,23,imp
+debounce time (reed),100,ms
+debounce time (hall),200,ms
+run out duration,10,s
+run out level,22,mm

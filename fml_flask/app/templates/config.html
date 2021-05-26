@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Configuration</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="POST" action="">
+                {{ form.csrf_token() }}
+                <fieldset class="form-group">
+                    <div class="form-group">
+                        {{ form.normal_display_brightness.label(class="form-control-label") }}
+
+                        {% if form.normal_display_brightness.errors %}
+                            {{ form.normal_display_brightness(value=config_df.loc["display brightness (normal operating mode)", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.normal_display_brightness.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.normal_display_brightness(value=config_df.loc["display brightness (normal operating mode)", "value"], class="form-control form-control-lg") }}
+                        {% endif %}                        
+                    </div>
+                    <div class="form-group">
+                        {{ form.active_display_brightness.label(class="form-control-label") }}
+                        
+                        {% if form.active_display_brightness.errors %}
+                            {{ form.active_display_brightness(value=config_df.loc["display brightness (active operating mode)", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.active_display_brightness.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.active_display_brightness(value=config_df.loc["display brightness (active operating mode)", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.active_display_brightness_duration.label(class="form-control-label") }}
+                        
+                        {% if form.active_display_brightness_duration.errors %}
+                            {{ form.active_display_brightness_duration(value=config_df.loc["active display brightness duration", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.active_display_brightness_duration.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.active_display_brightness_duration(value=config_df.loc["active display brightness duration", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.fuel_display_duration.label(class="form-control-label") }}
+                        
+                        {% if form.fuel_display_duration.errors %}
+                            {{ form.fuel_display_duration(value=config_df.loc["fuel display duration", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.fuel_display_duration.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.fuel_display_duration(value=config_df.loc["fuel display duration", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.refill_display_duration.label(class="form-control-label") }}
+                        
+                        {% if form.refill_display_duration.errors %}
+                            {{ form.refill_display_duration(value=config_df.loc["refill display duration", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.refill_display_duration.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.refill_display_duration(value=config_df.loc["refill display duration", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.flow_encoder_ratio.label(class="form-control-label") }}
+                        
+                        {% if form.flow_encoder_ratio.errors %}
+                            {{ form.flow_encoder_ratio(value=config_df.loc["flow encoder ratio", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.flow_encoder_ratio.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.flow_encoder_ratio(value=config_df.loc["flow encoder ratio", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.debounce_time_reed.label(class="form-control-label") }}
+                        
+                        {% if form.debounce_time_reed.errors %}
+                            {{ form.debounce_time_reed(value=config_df.loc["debounce time (reed)", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.debounce_time_reed.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.debounce_time_reed(value=config_df.loc["debounce time (reed)", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.debounce_time_hall.label(class="form-control-label") }}
+                        
+                        {% if form.debounce_time_hall.errors %}
+                            {{ form.debounce_time_hall(value=config_df.loc["debounce time (hall)", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.debounce_time_hall.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.debounce_time_hall(value=config_df.loc["debounce time (hall)", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.run_out_duration.label(class="form-control-label") }}
+                        
+                        {% if form.run_out_duration.errors %}
+                            {{ form.run_out_duration(value=config_df.loc["run out duration", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.run_out_duration.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.run_out_duration(value=config_df.loc["run out duration", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                    <div class="form-group">
+                        {{ form.run_out_level.label(class="form-control-label") }}
+                        
+                        {% if form.run_out_level.errors %}
+                            {{ form.run_out_level(value=config_df.loc["run out level", "value"], class="form-control form-control-lg is-invalid") }}
+                            <div class="text-danger">
+                                {% for error in form.run_out_level.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.run_out_level(value=config_df.loc["run out level", "value"], class="form-control form-control-lg") }}
+                        {% endif %}  
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
