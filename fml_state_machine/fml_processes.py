@@ -40,10 +40,9 @@ def display_control_process(display, display_type, adc_result):
 
         if fml_globals.debug: print(f"\n[{time.perf_counter_ns()}] Starting display update process...\n")
 
-        if display_type.value==fml_enums.FMLDisplayType.TANK_LEVEL:
-            if fml_globals.debug: print(f"\n[{time.perf_counter_ns()}] Display type: {display_type.value}")
-
-            display_intensity = int(fml_globals.config_params_dicty["display brightness (normal operating mode)"])
+        if display_type.value==fml_enums.FMLDisplayType.TANK_LEVEL.value:
+            if fml_globals.debug: print(f"\n[{time.perf_counter_ns()}] Display type: {fml_enums.FMLDisplayType(display_type.value)}")
+            display_intensity = int(fml_globals.config_params_dict["display brightness (normal operating mode)"])
             display_value = fml_misc.adc_to_liters(adc_result.value, fml_globals.tank_params_dict)
             
         display.update(display_value, display_intensity)

@@ -38,19 +38,10 @@ tank_params_dict = load_tank_params(tank_params_path)
 debug = True
 
 global adc_result
-adc_result = 0
-
 global display_type
-display_type = FMLDisplayType.TANK_LEVEL
-
 global button_status
-button_status = False
-
 global nozzle_status
-nozzle_status = False
-
-global leakage_stats
-leakage_stats = False
+global leakage_status
 
 # rpi gpio input pins
 button_inp_pin = 2

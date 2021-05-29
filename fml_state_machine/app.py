@@ -15,7 +15,7 @@ if __name__=="__main__":
     fml_globals.adc_result = multiprocessing.Value('L', 0)
     fml_globals.button_status = multiprocessing.Value('B', 0)
     fml_globals.nozzle_status = multiprocessing.Value('B', 0)
-    fml_globals.leakage_status = multiprocessing.Value('B', 0)
+    fml_globals.lekage_status = multiprocessing.Value('B', 0)
     fml_globals.display_type =  multiprocessing.Value('B', 0)
 
     ''' configure MCP346xR ADC '''
@@ -56,7 +56,7 @@ if __name__=="__main__":
     processes = list()
 
     # create processes for data acquisition and display, then add them to the processes list
-    processes.append(multiprocessing.Process(target=data_acquisition_process, args=[adc, fml_globals.adc_result, button, fml_globals.button_status, nozzle, fml_globals.nozzle_status, leakage, fml_globals.leakage_stats], name="data acquisition process"))
+    processes.append(multiprocessing.Process(target=data_acquisition_process, args=[adc, fml_globals.adc_result, button, fml_globals.button_status, nozzle, fml_globals.nozzle_status, leakage, fml_globals.leakage_status], name="data acquisition process"))
     processes.append(multiprocessing.Process(target=display_control_process, args=[display, fml_globals.display_type, fml_globals.adc_result], name="display control process"))
 
     # start processes
