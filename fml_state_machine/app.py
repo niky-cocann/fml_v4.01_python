@@ -15,7 +15,7 @@ if __name__=="__main__":
     fml_globals.adc_result = multiprocessing.Value('L', 0)
     fml_globals.button_status = multiprocessing.Value('B', 0)
     fml_globals.nozzle_status = multiprocessing.Value('B', 0)
-    fml_globals.lekage_status = multiprocessing.Value('B', 0)
+    fml_globals.leakage_status = multiprocessing.Value('B', 0)
     fml_globals.display_type =  multiprocessing.Value('B', 0)
 
     ''' configure MCP346xR ADC '''

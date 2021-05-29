@@ -16,15 +16,16 @@ def data_acquisition_process(adc, adc_result, button, button_status, nozzle, noz
         if fml_globals.debug: print(f"\n[{time.perf_counter_ns()}] ADC conversion: {adc_result.value}")
 
         ''' button status updated '''
-        button_status.value = button.update_status()
+        button_status.value = int(button.update_status())
         if fml_globals.debug: print(f"[{time.perf_counter_ns()}] Button status update: {button_status.value}")
 
         ''' nozzle status update '''
-        nozzle_status.value = nozzle.update_status()
+        nozzle_status.value = int(nozzle.update_status())
         if fml_globals.debug: print(f"[{time.perf_counter_ns()}] Nozzle status update: {nozzle_status.value}")
 
         ''' leakage status update '''
-        leakage_status.value = leakage.update_status()
+        leakage_status.value = int(leakage.update_status())
+        
         if fml_globals.debug: print(f"[{time.perf_counter_ns()}] Leakage status update: {leakage_status.value}")
 
         if fml_globals.debug: print(f"\n[{time.perf_counter_ns()}] Data acquisition completed. Sleeping for 1s...")
