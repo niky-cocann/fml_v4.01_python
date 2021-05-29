@@ -1,4 +1,3 @@
-import csv
 import RPi.GPIO as GPIO
 from statemachine import StateMachine, State
 from fml_enums import FMLDisplayType
@@ -96,28 +95,5 @@ class FMLMachine(StateMachine):
         display_type = FMLDisplayType.TANK_LEVEL
         print(f"display type: {display_type}")
 
-# functions
-def load_config_params(path):
-    config_params_dict = {}
-
-    with open(path) as csv_file:
-        csv_reader = csv.reader(csv_file, skipinitialspace=True, quotechar="'")
-        _ = next(csv_reader) # skip first row
-        for row in csv_reader:
-            config_params_dict[row[0]] = row[1]
-        
-    return config_params_dict
-
-def load_tank_params(path):
-    tank_params_dict = {}
-
-    with open(path) as csv_file:
-        csv_reader = csv.reader(csv_file, skipinitialspace=True, quotechar="'")
-        _ = next(csv_reader) # skip first row
-        for row in csv_reader:
-            tank_params_dict[row[0]] = row[1]
-        
-    return tank_params_dict
-
 def adc_to_liters(adc_value, tank_params_dict):
-    pass
+    return adc_value

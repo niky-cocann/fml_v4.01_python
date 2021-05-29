@@ -70,7 +70,27 @@ class Display7Seg:
 		msg = [data, command]
 
 		response = self.spi.transfer(msg)
+	
+	#
+	def update(self, data, intensity):
+		# convert intensity domain to 4 bit
+		intensity = (intensity * 15) // 100
 
+		# invert data: 1.234 -> 432.1
+		data = data[::-1]
+
+		if '.' in data:
+			# get the dp index and increment with 1 to account for the units digit
+			dp_digit = data.index('.') + 1
+			# remove the dp from data string
+			data = data.replace('.', '')
+		
+		for digit_index, digit in enumerate(data):
+			if dp_digit==digit_index:
+				self.set_digit(digit_index, intensity, display.DP_ON, digit)
+			else:
+				self.set_digit(digit_index, intensity, display.DP_OFF, digit)
+		
 
 #
 if __name__ == "__main__":

@@ -1,5 +1,29 @@
+import csv
 from fml_enums import FMLDisplayType
-from fml_misc import load_config_params, load_tank_params
+
+# functions
+def load_config_params(path):
+    config_params_dict = {}
+
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, skipinitialspace=True, quotechar="'")
+        _ = next(csv_reader) # skip first row
+        for row in csv_reader:
+            config_params_dict[row[0]] = row[1]
+        
+    return config_params_dict
+
+def load_tank_params(path):
+    tank_params_dict = {}
+
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, skipinitialspace=True, quotechar="'")
+        _ = next(csv_reader) # skip first row
+        for row in csv_reader:
+            tank_params_dict[row[0]] = row[1]
+        
+    return tank_params_dict
+
 
 ''' load config and tank parameters '''
 config_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/config.csv"
