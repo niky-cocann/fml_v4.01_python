@@ -802,7 +802,7 @@ class MCP346xR:
         self.spi.speed = spi_speed
 
 	# log level
-        self.verbose = True
+        self.verbose = False
 
 	# adc status
         self.status_byte = None
