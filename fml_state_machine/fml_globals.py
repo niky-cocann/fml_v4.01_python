@@ -24,13 +24,15 @@ def load_tank_params(path):
         
     return tank_params_dict
 
-
 ''' load config and tank parameters '''
-config_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/config.csv"
+#config_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/config.csv" # dev machine
+config_params_path = "/home/pi/Documents/fml_v4.01_python/fml_flask/app/data/config.csv" # rpi cm4
 config_params_dict = load_config_params(config_params_path)
 
-tank_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/tank_params.csv"
+# tank_params_path = "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_flask/app/data/tank_params.csv" # dev machine
+tank_params_path = "/home/pi/Documents/fml_v4.01_python/fml_flask/app/data/tank_params.csv" # rpi cm4
 tank_params_dict = load_tank_params(tank_params_path)
+
 
 ''' globals '''
 debug = True
