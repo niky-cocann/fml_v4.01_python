@@ -53,7 +53,7 @@ class Display7Seg:
 		self.spi_speed = spi_speed
 
 		# log level
-		self.verbose = True
+		self.verbose = False
 
 	#
 	def set_value(self, display_value):
@@ -61,7 +61,7 @@ class Display7Seg:
 
 	#
 	def set_digit(self, address, intensity, dp, ascii):
-		assert address < self.NO_OF_DIGITS, "You are trying to set an unexisting digit (min address: 0, max address: {})".format(self.no_of_digits-1)
+		assert address < self.NO_OF_DIGITS, "You are trying to set an unexisting digit {} (min address: 0, max address: {})".format(address, self.NO_OF_DIGITS-1)
 		assert intensity < self.INTENSITY_STEPS, "Max intensity: {}".format(self.INTENSITY_STEPS-1)
 
 		command = (address << 4) + intensity
@@ -84,12 +84,14 @@ class Display7Seg:
 			dp_digit = data.index('.') + 1
 			# remove the dp from data string
 			data = data.replace('.', '')
+		else:
+			dp_digit = None
 		
 		for digit_index, digit in enumerate(data):
-			if dp_digit==digit_index:
-				self.set_digit(digit_index, intensity, display.DP_ON, digit)
+			if dp_digit is not None and dp_digit==digit_index:
+				self.set_digit(digit_index, intensity, self.DP_ON, digit)
 			else:
-				self.set_digit(digit_index, intensity, display.DP_OFF, digit)
+				self.set_digit(digit_index, intensity, self.DP_OFF, digit)
 		
 
 #

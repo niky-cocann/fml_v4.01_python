@@ -8,7 +8,16 @@ from fml_misc import FMLMachine, FMLButton
 from fml_processes import data_acquisition_process, display_control_process
 from fml_rpicm4 import SPI as RPI_CM4_SPI
 
+import fml_globals
+
 if __name__=="__main__":
+    ''' globals '''
+    fml_globals.adc_result = multiprocessing.Value('L', 0)
+    fml_globals.button_status = multiprocessing.Value('B', 0)
+    fml_globals.nozzle_status = multiprocessing.Value('B', 0)
+    fml_globals.leakage_status = multiprocessing.Value('B', 0)
+    fml_globals.display_type =  multiprocessing.Value('B', 0)
+
     ''' configure MCP346xR ADC '''
     adc = MCP346xR(RPI_CM4_SPI.DEV0_CS0)
 
@@ -47,8 +56,8 @@ if __name__=="__main__":
     processes = list()
 
     # create processes for data acquisition and display, then add them to the processes list
-    processes.append(multiprocessing.Process(target=data_acquisition_process, args=[adc, button, nozzle, leakage], name="data acquisition process"))
-    processes.append(multiprocessing.Process(target=display_control_process, args=[display], name="display control process"))
+    processes.append(multiprocessing.Process(target=data_acquisition_process, args=[adc, fml_globals.adc_result, button, fml_globals.button_status, nozzle, fml_globals.nozzle_status, leakage, fml_globals.leakage_stats], name="data acquisition process"))
+    processes.append(multiprocessing.Process(target=display_control_process, args=[display, fml_globals.display_type, fml_globals.adc_result], name="display control process"))
 
     # start processes
     for process in processes:

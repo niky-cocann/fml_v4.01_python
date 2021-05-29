@@ -96,4 +96,4 @@ class FMLMachine(StateMachine):
         print(f"display type: {display_type}")
 
 def adc_to_liters(adc_value, tank_params_dict):
-    return adc_value
+    return str(adc_value)
