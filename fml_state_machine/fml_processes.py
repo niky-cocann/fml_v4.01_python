@@ -49,12 +49,12 @@ def display_control_process(display, display_type, adc_result):
             ohms = fml_misc.adc_to_ohms(adc_result.value)
 
             if ohms in fml_globals.tank_params_dict.keys():
-                display_value = str(round(int(fml_globals.tank_params_dict[ohms])))
+                display_value = str(round(float(fml_globals.tank_params_dict[ohms])))
             else:
                 if ohms<min(fml_globals.tank_params_dict.keys()):
-                    display_value = str(round(int(fml_globals.tank_params_dict[min(fml_globals.tank_params_dict.keys())])))
+                    display_value = str(round(float(fml_globals.tank_params_dict[min(fml_globals.tank_params_dict.keys())])))
                 elif ohms>max(fml_globals.tank_params_dict.keys()):
-                    display_value = str(round(int(fml_globals.tank_params_dict[max(fml_globals.tank_params_dict.keys())])))
+                    display_value = str(round(float(fml_globals.tank_params_dict[max(fml_globals.tank_params_dict.keys())])))
                 else:
                     display_value = "uuu".ljust(5)
 
