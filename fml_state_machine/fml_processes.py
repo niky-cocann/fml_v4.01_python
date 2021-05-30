@@ -51,12 +51,21 @@ def display_control_process(display, display_type, adc_result):
             if str(ohms) in fml_globals.tank_params_dict.keys():
                 display_value = fml_globals.tank_params_dict[str(ohms)]
             else:
-                display_value = "0"
+                if ohms<int(fml_globals.tank_params_dict.keys()[0]):
+                    display_value = fml_globals.tank_params_dict[fml_globals.tank_params_dict.keys()[0]]
+                elif ohms>int(fml_globals.tank_params_dict.keys()[-1]):
+                    display_value = fml_globals.tank_params_dict[fml_globals.tank_params_dict.keys()[-1]]
+                else:
+                    display_value = "0"
 
             if '.' in display_value:
-                display_value = f"{display_value}".rjust(5)[:5] + 'L'
+                display_value = f"{display_value}".rjust(5)[:5]
+                if display_value[-1]=='.':
+                    display_value = display_value[:-1]
             else:
-                display_value = f"{display_value}".rjust(4)[:4] + 'L'
+                display_value = f"{display_value}".rjust(4)[:4]
+            
+            display_value = f"{display_value}L"
 
         print(f"ohms: {ohms}")
         print(f"liters: {display_value}")
