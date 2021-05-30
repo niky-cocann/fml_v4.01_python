@@ -81,7 +81,7 @@ class Display7Seg:
 
 		if '.' in data:
 			# get the dp index and increment with 1 to account for the units digit
-			dp_digit = data.index('.') + 1
+			dp_digit = data.index('.')
 			# remove the dp from data string
 			data = data.replace('.', '')
 		else:

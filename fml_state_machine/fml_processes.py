@@ -67,13 +67,11 @@ def display_control_process(display, display_type, adc_result):
             
             display_value = f"{display_value}L"
 
-        print(f"ohms: {ohms}")
-        print(f"liters: {display_value}")
-
         display.update(display_value, display_intensity)
 
         if fml_globals.debug_display_update_process: print(f"[{time.perf_counter_ns()}] Display intensity: {display_intensity}")
         if fml_globals.debug_display_update_process: print(f"[{time.perf_counter_ns()}] Display value (adc): {adc_result.value}")
+        if fml_globals.debug_display_update_process: print(f"[{time.perf_counter_ns()}] Display value (ohm): {ohms}")
         if fml_globals.debug_display_update_process: print(f"[{time.perf_counter_ns()}] Display value (liters): {display_value}")
 
         process_stop = time.perf_counter_ns()
