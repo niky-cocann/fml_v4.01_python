@@ -1,3 +1,4 @@
+import fml_globals
 import RPi.GPIO as GPIO
 from statemachine import StateMachine, State
 from fml_enums import FMLDisplayType
@@ -95,5 +96,5 @@ class FMLMachine(StateMachine):
         display_type = FMLDisplayType.TANK_LEVEL
         print(f"display type: {display_type}")
 
-def adc_to_liters(adc_value, tank_params_dict):
-    return str(adc_value)
+def adc_to_ohms(adc_value):
+    return int(adc_value * fml_globals.adcu_to_ohm_factor)

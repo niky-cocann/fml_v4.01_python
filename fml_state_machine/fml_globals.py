@@ -51,3 +51,10 @@ leakage_inp_pin = 3
 
 # rpi gpio output pins
 pump_out_pin = 6
+
+# adc
+adcu_to_ohm_factor = 0.008087406197753
+
+# process
+data_acquisition_process_sleep = 1
+display_update_process_sleep = 1

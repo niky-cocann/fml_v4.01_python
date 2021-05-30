@@ -45,12 +45,12 @@ class Display7Seg:
 	DP_ON = 1
 
 	#
-	def __init__(self, spi_instance, spi_mode=spi.SPI.MODE_0, spi_bits_per_word=8, spi_speed=500000):
+	def __init__(self, spi_instance, spi_mode=spi.SPI.MODE_0, spi_bits_per_word=8, spi_speed=100000):
 		# spi
 		self.spi = spi.SPI(spi_instance)
 		self.spi.mode = spi_mode
 		self.spi.bits_per_word = spi_bits_per_word
-		self.spi_speed = spi_speed
+		self.spi.speed = spi_speed
 
 		# log level
 		self.verbose = False
