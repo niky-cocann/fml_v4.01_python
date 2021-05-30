@@ -48,8 +48,8 @@ def display_control_process(display, display_type, adc_result):
             display_intensity = int(fml_globals.config_params_dict["display brightness (normal operating mode)"])
             ohms = fml_misc.adc_to_ohms(adc_result.value)
 
-            if str(ohms) in fml_globals.tank_params_dict.keys():
-                display_value = fml_globals.tank_params_dict[str(ohms)]
+            if ohms in fml_globals.tank_params_dict.keys():
+                display_value = fml_globals.tank_params_dict[ohms]
             else:
                 if ohms<min(fml_globals.tank_params_dict.keys()):
                     display_value = fml_globals.tank_params_dict[min(fml_globals.tank_params_dict.keys())]
