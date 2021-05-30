@@ -35,7 +35,7 @@ if __name__=="__main__":
     adc.write_config()    
 
     ''' configure button '''
-    button = FMLButton(gpio_bcm_pin=button_inp_pin, inverted=True, debounce=True, debounce_counts=2)
+    button = FMLButton(gpio_bcm_pin=button_inp_pin, inverted=False, debounce=True, debounce_counts=2)
 
     ''' configure nozzle '''
     nozzle = FMLButton(gpio_bcm_pin=nozzle_inp_pin, inverted=False, debounce=True, debounce_counts=2)
