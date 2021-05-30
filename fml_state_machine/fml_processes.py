@@ -29,7 +29,7 @@ def data_acquisition_process(adc, adc_result, button, button_status, nozzle, noz
         if fml_globals.debug: print(f"[{time.perf_counter_ns()}] Leakage status update: {leakage_status.value}")
 
         process_stop = time.perf_counter_ns()
-        if fml_globals.debug: print(f"\n[{process_stop}] Data acquisition completed. Process duration: {(process_stop - process_start) // 1000000}ms. Sleeping for {fml_globals.data_acquisition_process_sleep}s...")
+        if fml_globals.debug: print(f"\n[{process_stop}] Data acquisition completed. Process duration: {(process_stop - process_start) // 1000}us. Sleeping for {fml_globals.data_acquisition_process_sleep}s...")
 
         # sleep
         time.sleep(fml_globals.data_acquisition_process_sleep)
@@ -59,7 +59,7 @@ def display_control_process(display, display_type, adc_result):
         if fml_globals.debug: print(f"[{time.perf_counter_ns()}] Display value (liters): {display_value}")
 
         process_stop = time.perf_counter_ns()
-        if fml_globals.debug: print(f"\n[{process_stop}] Display update completed. Process duration: {(process_stop - process_start) // 1000000}ms. Sleeping for {fml_globals.display_update_process_sleep}s...")
+        if fml_globals.debug: print(f"\n[{process_stop}] Display update completed. Process duration: {(process_stop - process_start) // 1000}us. Sleeping for {fml_globals.display_update_process_sleep}s...")
 
         # sleep
         time.sleep(fml_globals.display_update_process_sleep)
