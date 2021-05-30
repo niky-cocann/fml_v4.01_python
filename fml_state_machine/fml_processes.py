@@ -51,10 +51,10 @@ def display_control_process(display, display_type, adc_result):
             if str(ohms) in fml_globals.tank_params_dict.keys():
                 display_value = fml_globals.tank_params_dict[str(ohms)]
             else:
-                if ohms<int(fml_globals.tank_params_dict.keys()[0]):
-                    display_value = fml_globals.tank_params_dict[fml_globals.tank_params_dict.keys()[0]]
-                elif ohms>int(fml_globals.tank_params_dict.keys()[-1]):
-                    display_value = fml_globals.tank_params_dict[fml_globals.tank_params_dict.keys()[-1]]
+                if ohms<min(fml_globals.tank_params_dict.keys()):
+                    display_value = fml_globals.tank_params_dict[min(fml_globals.tank_params_dict.keys())]
+                elif ohms>max(fml_globals.tank_params_dict.keys()):
+                    display_value = fml_globals.tank_params_dict[max(fml_globals.tank_params_dict.keys())]
                 else:
                     display_value = "0"
 
