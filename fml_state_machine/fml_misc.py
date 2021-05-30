@@ -10,7 +10,10 @@ class FMLButton():
         self.pin = gpio_bcm_pin
         self.inverted = inverted
         self.debounce = debounce
-        self.debounce_counts = debounce_counts
+        if self.debounce is True:
+            self.debounce_counts = debounce_counts
+        else:
+            self.debounce_counts = 1
         self.counter = 1
 
         # set gpio pin as input
