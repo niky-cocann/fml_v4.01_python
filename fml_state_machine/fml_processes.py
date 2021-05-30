@@ -47,7 +47,7 @@ def display_control_process(display, display_type, adc_result):
             if fml_globals.debug: print(f"\n[{time.perf_counter_ns()}] Display type: {fml_enums.FMLDisplayType(display_type.value)}")
             display_intensity = int(fml_globals.config_params_dict["display brightness (normal operating mode)"])
             ohms = fml_misc.adc_to_ohms(adc_result.value)
-            if '.' in ohms:
+            if '.' in str(ohms):
                 display_value = f"{ohms}u".rjust(6)
             else:
                 display_value = f"{ohms}u".rjust(5)

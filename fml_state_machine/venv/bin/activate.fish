@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_state_machine/venv"
+set -gx VIRTUAL_ENV "/home/pi/Documents/fml_v4.01_python/fml_state_machine/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

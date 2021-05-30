@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/home/niky/Documents/Projects/MindEngineering/fml-python-dev/fml_state_machine/venv"
+setenv VIRTUAL_ENV "/home/pi/Documents/fml_v4.01_python/fml_state_machine/venv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
