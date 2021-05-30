@@ -48,11 +48,18 @@ def display_control_process(display, display_type, adc_result):
             display_intensity = int(fml_globals.config_params_dict["display brightness (normal operating mode)"])
             ohms = fml_misc.adc_to_ohms(adc_result.value)
 
-            display_value = fml_globals.tank_params_dict[str(ohms)]
+            if str(ohms) in fml_globals.tank_params_dict.keys():
+                display_value = fml_globals.tank_params_dict[str(ohms)]
+            else:
+                display_value = "0"
+
             if '.' in display_value:
                 display_value = f"{display_value}L".rjust(6)
             else:
                 display_value = f"{display_value}L".rjust(5)
+
+        print(f"ohms: {ohms}")
+        print(f"liters: {display_value}")
 
         display.update(display_value, display_intensity)
 
