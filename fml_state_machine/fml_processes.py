@@ -54,9 +54,9 @@ def display_control_process(display, display_type, adc_result):
                 display_value = "0"
 
             if '.' in display_value:
-                display_value = f"{display_value}L".rjust(6)
+                display_value = f"{display_value}".rjust(5)[:5] + 'L'
             else:
-                display_value = f"{display_value}L".rjust(5)
+                display_value = f"{display_value}".rjust(4)[:4] + 'L'
 
         print(f"ohms: {ohms}")
         print(f"liters: {display_value}")
