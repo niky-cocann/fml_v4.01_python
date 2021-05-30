@@ -35,7 +35,8 @@ tank_params_path = "/home/pi/Documents/fml_v4.01_python/fml_flask/app/data/tank_
 tank_params_dict = load_tank_params(tank_params_path)
 
 ''' globals '''
-debug = True
+debug_data_acquisition_process = True
+debug_display_update_process = False
 
 global adc_result
 global display_type
