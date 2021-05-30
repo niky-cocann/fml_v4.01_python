@@ -56,7 +56,7 @@ def display_control_process(display, display_type, adc_result):
                 elif ohms>max(fml_globals.tank_params_dict.keys()):
                     display_value = str(round(float(fml_globals.tank_params_dict[max(fml_globals.tank_params_dict.keys())])))
                 else:
-                    display_value = "uuu".ljust(5)
+                    display_value = "Err".ljust(5)
 
             if '.' in display_value:
                 display_value = f"{display_value}".rjust(5)[:5]
@@ -65,7 +65,8 @@ def display_control_process(display, display_type, adc_result):
             else:
                 display_value = f"{display_value}".rjust(4)[:4]
             
-            display_value = f"{display_value}L"
+            if display_value[:3]!="Err":
+                display_value = f"{display_value}L"
 
         display.update(display_value, display_intensity)
 
