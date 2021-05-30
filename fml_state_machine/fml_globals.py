@@ -9,7 +9,7 @@ def load_config_params(path):
         csv_reader = csv.reader(csv_file, skipinitialspace=True, quotechar="'")
         _ = next(csv_reader) # skip first row
         for row in csv_reader:
-            config_params_dict[row[0]] = row[1]
+            config_params_dict[int(row[0])] = row[1]
         
     return config_params_dict
 
@@ -20,7 +20,7 @@ def load_tank_params(path):
         csv_reader = csv.reader(csv_file, skipinitialspace=True, quotechar="'")
         _ = next(csv_reader) # skip first row
         for row in csv_reader:
-            tank_params_dict[row[0]] = row[1]
+            tank_params_dict[int(row[0])] = row[1]
         
     return tank_params_dict
 
